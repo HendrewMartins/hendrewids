@@ -1,25 +1,24 @@
 package br.com.hendrew.resource.model;
 
+import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AlunosResource {
+public class AlunosResource implements Serializable {
     
+	private static final long serialVersionUID = 1448217369723795910L;
+
 	@JsonProperty("id_aluno")
-	private Long id;
+	private String id;
 	
 	@JsonProperty("nome_aluno")
 	private String nome;
 	
-	public AlunosResource(Long id, String nome) {
-		this.id = id;
-		this.nome = nome;
-	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -31,4 +30,8 @@ public class AlunosResource {
 		this.nome = nome;
 	}
 	
+	@Override
+	public String toString() {
+		return "AlunosResource [id=" + id + ", nome=" + nome + "]";
+	}
 }

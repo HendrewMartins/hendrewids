@@ -12,20 +12,15 @@ import javax.persistence.Table;
 @Table(name = "alunos")
 public class Alunos implements Serializable {
 	
+	private static final long serialVersionUID = -7836547675495932957L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String nome;
 		
-	
-	public Alunos(long id, String nome) {
-		this.id = id;
-		this.nome = nome;
-	}
-	
-	@SuppressWarnings("unused")
-	private Alunos() {	
+	public Alunos() {	
 	}
 
 	public long getId() {

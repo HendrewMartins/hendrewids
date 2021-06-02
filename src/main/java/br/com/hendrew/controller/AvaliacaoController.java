@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.hendrew.datasource.model.Alunos;
-import br.com.hendrew.service.AlunosService;
-
+import br.com.hendrew.datasource.model.Avaliacao;
+import br.com.hendrew.service.AvaliacaoService;
 
 @RestController
 @RequestMapping(value = "/api")
-public class AlunosController {
+public class AvaliacaoController {
 	
-	 @Autowired
-	  private AlunosService serviceBuscar;
-
-	@GetMapping(path = "/alunos")
-	public List<Alunos> buscarTodosAlunos() {
-		return serviceBuscar.buscarAlunos();
+	@Autowired
+	private AvaliacaoService serviceBuscar;
+	
+	@GetMapping(path = "/avaliacao")
+	public List<Avaliacao> buscarTodasAvaliacao(){
+		return serviceBuscar.buscarAvaliacao();
 	}
+	
 }
