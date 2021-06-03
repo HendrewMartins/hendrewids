@@ -9,29 +9,41 @@ import br.com.hendrew.resource.model.NotasResource;
 
 @Component
 public class ConversorNotas {
-	public Notas conversor(NotasResource bimestreResource)
+	public Notas conversor(NotasResource notasResource)
 		      throws TratamentoResourceException {
 	
 		try {
 		      Notas notas = new Notas();
-		      Long idnotas          = checkLong(bimestreResource.getId());
-		      Long idavaliacao      = checkLong(bimestreResource.getIdAvaliacao());
-		      Long nota             = checkLong(bimestreResource.getNotas());
+		      
+		      
+		      if(notasResource.getId() != null) {
+		    	  Long idnotas          = checkLong(notasResource.getId()); 
+		    	  notas.setId(idnotas);
+		      }
+		      
+		      
+		      Long idavaliacao      = checkLong(notasResource.getIdavaliacao());
+		      Double nota           = checkDouble(notasResource.getNotas());
+		      Long idbimestre       = checkLong(notasResource.getIdbimestre());
 		    
-		      notas.setId(idnotas);
+		      
 		      notas.setIdavaliacao(idavaliacao);
 		      notas.setNotas(nota);
+		      notas.setIdbimestre(idbimestre);
 		     
 		      return notas;
 
 		    } catch (Exception e) {
 		      throw new TratamentoResourceException(
-		          "Falha ao converter o resource para entidade, resouce: " + bimestreResource);
+		          "Falha ao converter o resource para entidade, resouce: " + notasResource);
 		    }
 
 		  }
 
 	 private Long checkLong(String valor) {
 		    return Long.parseLong(valor);
+		  }
+	 private Double checkDouble(String valor) {
+		    return Double.parseDouble(valor);
 		  }
 }

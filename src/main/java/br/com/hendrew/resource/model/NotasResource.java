@@ -17,6 +17,9 @@ public class NotasResource implements Serializable {
 	
 	@JsonProperty("nota")
 	private String notas;
+	
+	@JsonProperty("id_bimestre")
+	private String idbimestre;
 
 	public String getId() {
 		return id;
@@ -26,14 +29,6 @@ public class NotasResource implements Serializable {
 		this.id = id;
 	}
 
-	public String getIdAvaliacao() {
-		return idavaliacao;
-	}
-
-	public void setAvaliacao(String idavaliacao) {
-		this.idavaliacao = idavaliacao;
-	}
-
 	public String getNotas() {
 		return notas;
 	}
@@ -41,9 +36,27 @@ public class NotasResource implements Serializable {
 	public void setNotas(String notas) {
 		this.notas = notas;
 	}
+	
+	public String getIdavaliacao() {
+		return idavaliacao;
+	}
+
+	public void setIdavaliacao(String idavaliacao) {
+		this.idavaliacao = idavaliacao;
+	}
+
+	public String getIdbimestre() {
+		return idbimestre;
+	}
+
+	public void setIdbimestre(String idbimestre) {
+		this.idbimestre = idbimestre;
+	}
 
 	@Override
 	public String toString() {
-		return "NotasResource [id=" + id + ", avaliacao=" + idavaliacao + ", notas=" + notas + "]";
+		return "NotasResource [id=" + id + ", idavaliacao=" + idavaliacao + ", notas=" + notas + ", idbimestre="
+				+ idbimestre + "]";
 	}
+
 }

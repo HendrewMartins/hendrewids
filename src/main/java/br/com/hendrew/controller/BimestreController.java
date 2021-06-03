@@ -30,9 +30,15 @@ public class BimestreController {
 	}
 	
 	@GetMapping(path = "/bimestre/id/{id}")
-	  public Bimestre buscarAvaliacaoPorId(
+	  public Bimestre buscarBimestrePorId(
 	      @PathVariable(name = "id", required = true) Long id) throws TratamentoNotFoundException {
 	    return service.buscarPorId(id);
+	}
+	
+	@GetMapping(path = "/bimestre/aluno/{idaluno}")
+	  public List<Bimestre> buscarBimestrePorIdaluno(
+	      @PathVariable(name = "idaluno", required = true) Long idaluno) throws TratamentoNotFoundException {
+	    return service.buscarPorAluno(idaluno);
 	}
 	
 	@PostMapping(path = "/bimestre/save")

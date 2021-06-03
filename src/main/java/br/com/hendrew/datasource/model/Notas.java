@@ -19,7 +19,8 @@ public class Notas implements Serializable {
 	private long id;
 	
 	private long idavaliacao;
-	private long notas;
+	private double notas;
+	private long idbimestre;
 	
 	public Notas() {
 	}
@@ -40,11 +41,19 @@ public class Notas implements Serializable {
 		this.idavaliacao = idavaliacao;
 	}
 		
-	public long getNotas() {
+	public double getNotas() {
 		return notas;
 	}
-	public void setNotas(long notas) {
+	public void setNotas(double notas) {
 		this.notas = notas;
+	}
+
+	public long getIdbimestre() {
+		return idbimestre;
+	}
+
+	public void setIdbimestre(long idbimestre) {
+		this.idbimestre = idbimestre;
 	}
 	
 
