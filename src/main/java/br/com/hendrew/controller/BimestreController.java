@@ -42,8 +42,8 @@ public class BimestreController {
 	}
 	
 	@PostMapping(path = "/bimestre/save")
-	  public void salvarNutricionista(@RequestBody BimestreResource bimestre) {
-	    service.cadastroBimestre(bimestre);
+	  public Bimestre salvarNutricionista(@RequestBody BimestreResource bimestre) {
+	   return service.cadastroBimestre(bimestre);
 	}
 	
 	@DeleteMapping(path = "/bimestre/delete/{id}")

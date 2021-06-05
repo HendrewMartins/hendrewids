@@ -25,12 +25,14 @@ public class BimestreService {
 	@Autowired
 	private ConversorBimestre service;
 
-	public void cadastroBimestre(BimestreResource bimestreResource) {
+	public Bimestre cadastroBimestre(BimestreResource bimestreResource) {
 		try {
 			Bimestre bimestre = service.conversor(bimestreResource);
 			bimestreRepository.saveAndFlush(bimestre);
+			return bimestre;
 		} catch (TratamentoResourceException e) {
 			LOG.error("Erro ao salvar o Bimestre: " + e.getMessage(), e);
+			return null;
 		}
 	}
 
