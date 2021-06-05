@@ -7,10 +7,10 @@ public class AlunosResource implements Serializable {
     
 	private static final long serialVersionUID = 1448217369723795910L;
 
-	@JsonProperty("id_aluno")
+	@JsonProperty("id")
 	private String id;
 	
-	@JsonProperty("nome_aluno")
+	@JsonProperty("nome")
 	private String nome;
 	
 

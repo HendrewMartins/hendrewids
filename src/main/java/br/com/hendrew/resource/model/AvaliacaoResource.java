@@ -11,10 +11,10 @@ public class AvaliacaoResource implements Serializable{
 	@JsonProperty("id_avaliacao")
 	private String id;
 	
-	@JsonProperty("desc_avaliacao")
+	@JsonProperty("descricao")
 	private String descricao;
 	
-	@JsonProperty("peso_avaliacao")
+	@JsonProperty("peso")
 	private String peso;
 	
 	public String getId() {

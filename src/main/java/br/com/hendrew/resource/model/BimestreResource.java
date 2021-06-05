@@ -21,7 +21,7 @@ public class BimestreResource implements Serializable {
 	@JsonProperty("faltas")
 	private String faltas;
 	
-	@JsonProperty("idaluno")
+	@JsonProperty("idalunos")
 	private String idaluno;
 
 	public String getId() {
