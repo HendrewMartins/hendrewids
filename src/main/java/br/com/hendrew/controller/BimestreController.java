@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.hendrew.datasource.model.Bimestre;
 import br.com.hendrew.exception.TratamentoNotFoundException;
-import br.com.hendrew.exception.TratamentoResourceException;
 import br.com.hendrew.resource.model.BimestreResource;
 import br.com.hendrew.service.BimestreService;
 
@@ -43,14 +42,14 @@ public class BimestreController {
 	}
 	
 	@PostMapping(path = "/bimestre/save")
-	  public Bimestre salvarNutricionista(@RequestBody BimestreResource bimestre){
+	  public Bimestre salvarNutricionista(@RequestBody BimestreResource bimestre) {
 	   return service.cadastroBimestre(bimestre);
 	}
 	
 	@DeleteMapping(path = "/bimestre/delete/{id}")
-	  public void deleteBimestre(@PathVariable(name = "id", required = true) Long id)
+	  public boolean deleteBimestre(@PathVariable(name = "id", required = true) Long id)
 	      throws TratamentoNotFoundException {
-	    service.deletarPorId(id);
+	   return service.deletarPorId(id);
 	  }
 	
 	@PutMapping(path = "/bimestre/edit/{id}")

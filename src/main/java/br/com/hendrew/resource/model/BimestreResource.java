@@ -21,8 +21,8 @@ public class BimestreResource implements Serializable {
 	@JsonProperty("faltas")
 	private Long faltas;
 	
-	@JsonProperty("idalunos")
-	private Long idaluno;
+	@JsonProperty("idAlunos")
+	private Long idAlunos;
 
 	public Long getId() {
 		return id;
@@ -56,17 +56,17 @@ public class BimestreResource implements Serializable {
 		this.faltas = faltas;
 	}
 
-	public Long getIdAluno() {
-		return idaluno;
+	public Long getIdAlunos() {
+		return idAlunos;
 	}
 
-	public void setIdAlunos(Long idaluno) {
-		this.idaluno = idaluno;
+	public void setIdAlunos(Long idalunos) {
+		this.idAlunos = idalunos;
 	}
 
 	@Override
 	public String toString() {
 		return "BimestreResource [id=" + id + ", bimestre=" + bimestre + ", ano=" + ano + ", faltas=" + faltas
-				+ ", alunos=" + idaluno + "]";
+				+ ", alunos=" + idAlunos + "]";
 	}
 }

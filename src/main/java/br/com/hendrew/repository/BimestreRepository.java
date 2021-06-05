@@ -9,6 +9,6 @@ import br.com.hendrew.datasource.model.Bimestre;
 public interface BimestreRepository 
 		extends JpaRepository<Bimestre, Long>{
 	
-	List <Bimestre> findByIdalunos(Long idalunos);
+	List <Bimestre> findByIdAlunos(Long idAlunos);
    
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hendrew.conversor.ConversorBimestre;
-import br.com.hendrew.conversor.ConversorBimestreResource;
 import br.com.hendrew.datasource.model.Bimestre;
 import br.com.hendrew.exception.TratamentoNotFoundException;
 import br.com.hendrew.exception.TratamentoResourceException;
@@ -27,8 +26,13 @@ public class BimestreService {
 	private ConversorBimestre service;
 
 	public Bimestre cadastroBimestre(BimestreResource bimestreResource) {
-		Bimestre bimestre = service.conversor(bimestreResource);
-		return bimestreRepository.saveAndFlush(bimestre);
+		try {
+			Bimestre bimestre = service.conversor(bimestreResource);
+			return bimestreRepository.saveAndFlush(bimestre);
+		} catch (TratamentoResourceException e) {
+			LOG.error("Erro ao salvar o Notas: " + e.getMessage(), e);
+			return null;
+		}	
 	}
 
 	public List<Bimestre> buscarTodosBimestre() {
@@ -63,29 +67,37 @@ public class BimestreService {
 		return optionalBimestre;
 	}
 	
-	private Optional<List<Bimestre>> getOptionalAluno(Long idaluno) {
-		Optional<List<Bimestre>> optionalBimestre = Optional.ofNullable(bimestreRepository.findByIdalunos(idaluno));
+	private Optional<List<Bimestre>> getOptionalAluno(Long idAlunos) {
+		Optional<List<Bimestre>> optionalBimestre = Optional.ofNullable(bimestreRepository.findByIdAlunos(idAlunos));
 		return optionalBimestre;
 	}
 
-	public void deletarPorId(Long id) throws TratamentoNotFoundException {
+	public boolean deletarPorId(Long id) throws TratamentoNotFoundException {
 		Optional<Bimestre> optionalBimestre = getOptional(id);
 		if (!optionalBimestre.isPresent()) {
 			throw new TratamentoNotFoundException("Bimestre nao encontrado atraves do ID: " + id);
 		} else {
 			bimestreRepository.delete(optionalBimestre.get());
+			return true;
 		}
 
 	}
 
 	public Bimestre atualizar(Long id, BimestreResource bimestreResource) {
 		Optional<Bimestre> optionalbimestre = bimestreRepository.findById(id);
-
+		
 		if (optionalbimestre.isPresent()) {
+			try {
 			Bimestre bim = service.conversor(bimestreResource);
-			bimestreRepository.save(bim);
 			return bimestreRepository.save(bim);
+			
+			} catch (TratamentoResourceException e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 		return null;
 	}
+		
+	
 }

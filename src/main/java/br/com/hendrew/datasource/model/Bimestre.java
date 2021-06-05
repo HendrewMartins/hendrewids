@@ -21,18 +21,18 @@ public class Bimestre implements Serializable{
 	private long bimestre;
 	private long ano;
 	private long faltas;
-	private long idalunos;
+	private long idAlunos;
 	
 	public Bimestre() {
 	}
 	
 	
 	public long getIdAlunos() {
-		return idalunos;
+		return idAlunos;
 	}
 
 	public void setIdAlunos(long idalunos) {
-		this.idalunos = idalunos;
+		this.idAlunos = idalunos;
 	}
 	
 	public long getId() {

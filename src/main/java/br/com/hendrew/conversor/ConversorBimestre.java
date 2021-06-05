@@ -11,7 +11,8 @@ import br.com.hendrew.resource.model.BimestreResource;
 @Component
 public class ConversorBimestre {
 	
-	public Bimestre conversor(BimestreResource bimestreResource) {
+	public Bimestre conversor(BimestreResource bimestreResource)  
+			throws TratamentoResourceException {
 	
 		try {
 		      Bimestre bimestre = new Bimestre();
@@ -23,7 +24,7 @@ public class ConversorBimestre {
 		      Long bimestr      = bimestreResource.getBimestre();
 		      Long ano          = bimestreResource.getAno();
 		      Long faltas       = bimestreResource.getFaltas();
-		      Long idalunos     = bimestreResource.getIdAluno();
+		      Long idalunos     = bimestreResource.getIdAlunos();
 		    
 		      bimestre.setBimestre(bimestr);
 		      bimestre.setAno(ano);
@@ -32,7 +33,8 @@ public class ConversorBimestre {
 		      return bimestre;
 
 		    } catch (Exception e) {
-			      return null;
+		    	throw new TratamentoResourceException(
+				          "Falha ao converter o resource para entidade, resouce: " + bimestreResource);
 
 		    }
 
