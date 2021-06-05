@@ -11,21 +11,19 @@ import br.com.hendrew.resource.model.BimestreResource;
 @Component
 public class ConversorBimestre {
 	
-	public Bimestre conversor(BimestreResource bimestreResource)
-		      throws TratamentoResourceException {
+	public Bimestre conversor(BimestreResource bimestreResource) {
 	
 		try {
 		      Bimestre bimestre = new Bimestre();
 		      
-		      if(bimestreResource.getId() != null) {
-		    	// Long idBimestre   = checkLong(bimestreResource.getId());  
+		      if(bimestreResource.getId() != null) {  
 		    	 bimestre.setId(bimestreResource.getId());
 		      }
 		      
-		      Long bimestr      = bimestreResource.getBimestre();//checkLong(bimestreResource.getBimestre());
-		      Long ano          = bimestreResource.getAno();//checkLong(bimestreResource.getAno());
-		      Long faltas       = bimestreResource.getFaltas();//checkLong(bimestreResource.getFaltas());
-		      Long idalunos     = bimestreResource.getIdAluno();//checkLong(bimestreResource.getIdAluno());
+		      Long bimestr      = bimestreResource.getBimestre();
+		      Long ano          = bimestreResource.getAno();
+		      Long faltas       = bimestreResource.getFaltas();
+		      Long idalunos     = bimestreResource.getIdAluno();
 		    
 		      bimestre.setBimestre(bimestr);
 		      bimestre.setAno(ano);
@@ -34,17 +32,10 @@ public class ConversorBimestre {
 		      return bimestre;
 
 		    } catch (Exception e) {
-		      throw new TratamentoResourceException(
-		          "Falha ao converter o resource para entidade, resouce: " + bimestreResource);
+			      return null;
+
 		    }
 
 		  }
-
-	 private Long checkLong(String valor) {
-		    return Long.parseLong(valor);
-		  }
-	 
-	 
-	
 
 }

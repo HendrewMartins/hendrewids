@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.hendrew.conversor.ConversorBimestre;
+import br.com.hendrew.conversor.ConversorBimestreResource;
 import br.com.hendrew.datasource.model.Bimestre;
 import br.com.hendrew.exception.TratamentoNotFoundException;
 import br.com.hendrew.exception.TratamentoResourceException;
@@ -26,14 +27,8 @@ public class BimestreService {
 	private ConversorBimestre service;
 
 	public Bimestre cadastroBimestre(BimestreResource bimestreResource) {
-		try {
-			Bimestre bimestre = service.conversor(bimestreResource);
-			bimestreRepository.saveAndFlush(bimestre);
-			return bimestreRepository.saveAndFlush(bimestre);
-		} catch (TratamentoResourceException e) {
-			LOG.error("Erro ao salvar o Bimestre: " + e.getMessage(), e);
-			return null;
-		}
+		Bimestre bimestre = service.conversor(bimestreResource);
+		return bimestreRepository.saveAndFlush(bimestre);
 	}
 
 	public List<Bimestre> buscarTodosBimestre() {
@@ -87,14 +82,9 @@ public class BimestreService {
 		Optional<Bimestre> optionalbimestre = bimestreRepository.findById(id);
 
 		if (optionalbimestre.isPresent()) {
-			try {
-				Bimestre bim = service.conversor(bimestreResource);
-				bimestreRepository.save(bim);
-				return bimestreRepository.save(bim);
-			} catch (TratamentoResourceException e) {
-				e.printStackTrace();
-			}
-			return null;
+			Bimestre bim = service.conversor(bimestreResource);
+			bimestreRepository.save(bim);
+			return bimestreRepository.save(bim);
 		}
 		return null;
 	}
