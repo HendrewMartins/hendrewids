@@ -9,16 +9,16 @@ public class NotasResource implements Serializable {
 
 	private static final long serialVersionUID = -5472165565347759718L;
 
-	@JsonProperty("id_nota")
+	@JsonProperty("id")
 	private String id;
 	
-	@JsonProperty("id_avaliacao")
+	@JsonProperty("idavaliacao")
 	private String idavaliacao;
 	
-	@JsonProperty("nota")
+	@JsonProperty("notas")
 	private String notas;
 	
-	@JsonProperty("id_bimestre")
+	@JsonProperty("idbimestre")
 	private String idbimestre;
 
 	public String getId() {

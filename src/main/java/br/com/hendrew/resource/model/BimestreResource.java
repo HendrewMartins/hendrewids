@@ -9,19 +9,19 @@ public class BimestreResource implements Serializable {
 
 	private static final long serialVersionUID = 5657973691916215319L;
 	
-	@JsonProperty("id_bimestre")
+	@JsonProperty("id")
     private String id;	
 	
 	@JsonProperty("bimestre")
 	private String bimestre;
 	
-	@JsonProperty("ano_bimestre")
+	@JsonProperty("ano")
 	private String ano;
 	
-	@JsonProperty("faltas_bimestre")
+	@JsonProperty("faltas")
 	private String faltas;
 	
-	@JsonProperty("id_aluno")
+	@JsonProperty("idaluno")
 	private String idaluno;
 
 	public String getId() {

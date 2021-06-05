@@ -18,8 +18,8 @@ public class ConversorBimestre {
 		      Bimestre bimestre = new Bimestre();
 		      
 		      if(bimestreResource.getId() != null) {
-		    	  Long idBimestre   = checkLong(bimestreResource.getId());  
-		    	  bimestre.setId(idBimestre);
+		    	 Long idBimestre   = checkLong(bimestreResource.getId());  
+		    	 bimestre.setId(idBimestre);
 		      }
 		      
 		      Long bimestr      = checkLong(bimestreResource.getBimestre());
