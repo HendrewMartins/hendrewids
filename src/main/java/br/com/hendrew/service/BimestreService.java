@@ -29,7 +29,7 @@ public class BimestreService {
 		try {
 			Bimestre bimestre = service.conversor(bimestreResource);
 			bimestreRepository.saveAndFlush(bimestre);
-			return bimestre;
+			return bimestreRepository.saveAndFlush(bimestre);
 		} catch (TratamentoResourceException e) {
 			LOG.error("Erro ao salvar o Bimestre: " + e.getMessage(), e);
 			return null;
@@ -90,7 +90,7 @@ public class BimestreService {
 			try {
 				Bimestre bim = service.conversor(bimestreResource);
 				bimestreRepository.save(bim);
-				return service.conversor(bimestreResource);
+				return bimestreRepository.save(bim);
 			} catch (TratamentoResourceException e) {
 				e.printStackTrace();
 			}
