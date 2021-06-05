@@ -10,57 +10,57 @@ public class BimestreResource implements Serializable {
 	private static final long serialVersionUID = 5657973691916215319L;
 	
 	@JsonProperty("id")
-    private String id;	
+    private Long id;	
 	
 	@JsonProperty("bimestre")
-	private String bimestre;
+	private Long bimestre;
 	
 	@JsonProperty("ano")
-	private String ano;
+	private Long ano;
 	
 	@JsonProperty("faltas")
-	private String faltas;
+	private Long faltas;
 	
 	@JsonProperty("idalunos")
-	private String idaluno;
+	private Long idaluno;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getBimestre() {
+	public Long getBimestre() {
 		return bimestre;
 	}
 
-	public void setBimestre(String bimestre) {
+	public void setBimestre(Long bimestre) {
 		this.bimestre = bimestre;
 	}
 
-	public String getAno() {
+	public Long getAno() {
 		return ano;
 	}
 
-	public void setAno(String ano) {
+	public void setAno(Long ano) {
 		this.ano = ano;
 	}
 
-	public String getFaltas() {
+	public Long getFaltas() {
 		return faltas;
 	}
 
-	public void setFaltas(String faltas) {
+	public void setFaltas(Long faltas) {
 		this.faltas = faltas;
 	}
 
-	public String getIdAluno() {
+	public Long getIdAluno() {
 		return idaluno;
 	}
 
-	public void setIdAlunos(String idaluno) {
+	public void setIdAlunos(Long idaluno) {
 		this.idaluno = idaluno;
 	}
 
