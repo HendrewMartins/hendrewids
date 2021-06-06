@@ -9,19 +9,19 @@ public class AvaliacaoResource implements Serializable{
 	private static final long serialVersionUID = 7910842596245202L;
 
 	@JsonProperty("id_avaliacao")
-	private String id;
+	private Long id;
 	
 	@JsonProperty("descricao")
 	private String descricao;
 	
 	@JsonProperty("peso")
-	private String peso;
+	private Double peso;
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -33,11 +33,11 @@ public class AvaliacaoResource implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public String getPeso() {
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(String peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 

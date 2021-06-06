@@ -1,29 +1,43 @@
 package br.com.hendrew.datasource.model;
 
-import java.io.Serializable;
+public class Notas_Auxiliar {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "notas")
-public class Notas implements Serializable {
-	
-	private static final long serialVersionUID = 8446201008432303346L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
 	private long idavaliacao;
-	private double notas;
 	private long idbimestre;
+	private double notas;
 	private long aluno;
+	private long ano;
+	private String desavaliacao;
+	private String desbimestre;
+	private String desalunos;
 	
-	public Notas() {
+	
+	public String getDesavaliacao() {
+		return desavaliacao;
+	}
+
+	public void setDesavaliacao(String desavaliacao) {
+		this.desavaliacao = desavaliacao;
+	}
+
+	public long getAno() {
+		return ano;
+	}
+
+	public void setAno(long ano) {
+		this.ano = ano;
+	}
+
+	public String getDesalunos() {
+		return desalunos;
+	}
+
+	public void setDesalunos(String desalunos) {
+		this.desalunos = desalunos;
+	}
+
+	public Notas_Auxiliar() {
 	}
     
 	public long getId() {
@@ -64,6 +78,12 @@ public class Notas implements Serializable {
 	public void setAluno(long aluno) {
 		this.aluno = aluno;
 	}
-	
 
+	public String getDesbimestre() {
+		return desbimestre;
+	}
+
+	public void setDesbimestre(String desbimestre) {
+		this.desbimestre = desbimestre;
+	}
 }

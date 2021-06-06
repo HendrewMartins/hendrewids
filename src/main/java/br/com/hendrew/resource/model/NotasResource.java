@@ -10,53 +10,66 @@ public class NotasResource implements Serializable {
 	private static final long serialVersionUID = -5472165565347759718L;
 
 	@JsonProperty("id")
-	private String id;
+	private Long id;
 	
 	@JsonProperty("idavaliacao")
-	private String idavaliacao;
+	private Long idavaliacao;
 	
 	@JsonProperty("notas")
-	private String notas;
+	private Double notas;
 	
 	@JsonProperty("idbimestre")
-	private String idbimestre;
+	private Long idbimestre;
+	
+	@JsonProperty("aluno")
+	private Long aluno;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getNotas() {
+	public Double getNotas() {
 		return notas;
 	}
 
-	public void setNotas(String notas) {
+	public void setNotas(Double notas) {
 		this.notas = notas;
 	}
 	
-	public String getIdavaliacao() {
+	public Long getIdavaliacao() {
 		return idavaliacao;
 	}
 
-	public void setIdavaliacao(String idavaliacao) {
+	public void setIdavaliacao(Long idavaliacao) {
 		this.idavaliacao = idavaliacao;
 	}
 
-	public String getIdbimestre() {
+	public Long getIdbimestre() {
 		return idbimestre;
 	}
 
-	public void setIdbimestre(String idbimestre) {
+	public void setIdbimestre(Long idbimestre) {
 		this.idbimestre = idbimestre;
+	}
+
+	public Long getAluno() {
+		return aluno;
+	}
+
+	public void setIdAlunos(Long aluno) {
+		this.aluno = aluno;
 	}
 
 	@Override
 	public String toString() {
 		return "NotasResource [id=" + id + ", idavaliacao=" + idavaliacao + ", notas=" + notas + ", idbimestre="
-				+ idbimestre + "]";
+				+ idbimestre + ", aluno=" + aluno + "]";
 	}
+
+	
 
 }

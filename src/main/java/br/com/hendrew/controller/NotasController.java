@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.hendrew.datasource.model.Notas;
+import br.com.hendrew.datasource.model.Notas_Auxiliar;
 import br.com.hendrew.exception.TratamentoNotFoundException;
 import br.com.hendrew.resource.model.NotasResource;
 import br.com.hendrew.service.NotasService;
@@ -26,8 +27,8 @@ public class NotasController {
 	private NotasService service;
 	
 	@GetMapping(path = "/notas")
-	public List<Notas> buscarTodasNotas(){
-		return service.buscarTodasNotas();
+	public List<Notas_Auxiliar> buscarTodasNotas(){
+		return service.buscarTodosNotas();
 	}
 	
 	@GetMapping(path = "/notas/id/{id}")
@@ -43,8 +44,8 @@ public class NotasController {
 	}
 	
 	@PostMapping(path = "/notas/save")
-	  public void salvarNotas(@RequestBody NotasResource notas) {
-	    service.cadastroBimestre(notas);
+	  public Notas salvarNotas(@RequestBody NotasResource notas) {
+	   return service.cadastroNotas(notas);
 	}
 	
 	@DeleteMapping(path = "/notas/delete/{id}")

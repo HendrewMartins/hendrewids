@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.hendrew.datasource.model.Bimestre;
+import br.com.hendrew.datasource.model.Bimestre_Auxiliar;
 import br.com.hendrew.exception.TratamentoNotFoundException;
 import br.com.hendrew.resource.model.BimestreResource;
 import br.com.hendrew.service.BimestreService;
@@ -25,8 +26,8 @@ public class BimestreController {
 	private BimestreService service;
 	
 	@GetMapping(path = "/bimestre")
-	public List<Bimestre> buscarTodosBimestre(){
-		return service.buscarTodosBimestre();
+	public List<Bimestre_Auxiliar> buscarTodosBimestre(){
+		return service.buscarTodosBimestreNmAluno();
 	}
 	
 	@GetMapping(path = "/bimestre/id/{id}")
@@ -36,9 +37,9 @@ public class BimestreController {
 	}
 	
 	@GetMapping(path = "/bimestre/aluno/{idaluno}")
-	  public List<Bimestre> buscarBimestrePorIdaluno(
+	  public List<Bimestre_Auxiliar> buscarBimestrePorIdaluno(
 	      @PathVariable(name = "idaluno", required = true) Long idaluno) throws TratamentoNotFoundException {
-	    return service.buscarPorAluno(idaluno);
+	    return service.buscarPorIdAluno(idaluno);
 	}
 	
 	@PostMapping(path = "/bimestre/save")

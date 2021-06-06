@@ -17,19 +17,20 @@ public class ConversorNotas {
 		      
 		      
 		      if(notasResource.getId() != null) {
-		    	  Long idnotas          = checkLong(notasResource.getId()); 
-		    	  notas.setId(idnotas);
+		    	  notas.setId(notasResource.getId());
 		      }
 		      
 		      
-		      Long idavaliacao      = checkLong(notasResource.getIdavaliacao());
-		      Double nota           = checkDouble(notasResource.getNotas());
-		      Long idbimestre       = checkLong(notasResource.getIdbimestre());
+		      Long idavaliacao      = notasResource.getIdavaliacao();
+		      Double nota           = notasResource.getNotas();
+		      Long idbimestre       = notasResource.getIdbimestre();
+		      Long aluno            = notasResource.getAluno();
 		    
 		      
 		      notas.setIdavaliacao(idavaliacao);
 		      notas.setNotas(nota);
 		      notas.setIdbimestre(idbimestre);
+		      notas.setAluno(aluno);
 		     
 		      return notas;
 
@@ -40,10 +41,4 @@ public class ConversorNotas {
 
 		  }
 
-	 private Long checkLong(String valor) {
-		    return Long.parseLong(valor);
-		  }
-	 private Double checkDouble(String valor) {
-		    return Double.parseDouble(valor);
-		  }
 }
