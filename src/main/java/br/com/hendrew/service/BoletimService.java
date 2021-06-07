@@ -1,7 +1,10 @@
 package br.com.hendrew.service;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,17 +90,15 @@ public class BoletimService {
 				}
 			
 			}
-		    System.out.println(cont);
 			if(cont > 0) {
-			System.out.println((nota1+nota2+nota3+nota4));	
-			
-			notafinal = (nota1+nota2+nota3+nota4)/cont;
-			System.out.println(notafinal);
+				notafinal = (nota1+nota2+nota3+nota4)/cont;
+				DecimalFormat formato = new DecimalFormat("##.##", new DecimalFormatSymbols(new Locale("en", "USA"))); 
+				notafinal = Double.valueOf(formato.format(notafinal));
 			}
 			
 			Double mediafaltas = 0.0;
 			
-			if(letivo > 0) {
+			if(letivo > 0) {	
 				mediafaltas = (double) (100 - ((faltas/letivo)*100));
 			}
 					
@@ -108,10 +109,19 @@ public class BoletimService {
 			}else {
 				boletim.setSituacao("Reprovado");
 			}
+			DecimalFormat formato = new DecimalFormat("##.##", new DecimalFormatSymbols(new Locale("en", "USA"))); 
+            nota1 = Double.valueOf(formato.format(nota1));
 			boletim.setNota1(nota1);
+			
+			nota2 = Double.valueOf(formato.format(nota2));
 			boletim.setNota2(nota2);
+			
+			nota3 = Double.valueOf(formato.format(nota3));
 			boletim.setNota3(nota3);
+			
+			nota4 = Double.valueOf(formato.format(nota4));
 			boletim.setNota4(nota4);
+			
 			boletim.setFaltas(faltas);
 			boletim.setMediafinal(notafinal);
 			lista.add(i,boletim);
