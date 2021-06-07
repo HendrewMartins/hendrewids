@@ -130,7 +130,7 @@ public class NotasService {
 				aux.setIdavaliacao(listNotas.get(i).getIdavaliacao());
 				aux.setNotas(listNotas.get(i).getNotas());
 				avaliacao = serviceavaliacao.buscarPorIdAvaliacao(listNotas.get(i).getIdavaliacao());
-				aux.setDesavaliacao(avaliacao.getDescricao());
+				aux.setDesavaliacao(avaliacao.getDescricao()+" - "+avaliacao.getPeso()+"%");
 			    bimestre  = servicebimestre.buscarPorId(listNotas.get(i).getIdbimestre()); 
 				aux.setAno(bimestre.getAno());
 				aux.setDesbimestre(bimestre.getBimestre()+"º"+" Bimestre - "+bimestre.getAno());
