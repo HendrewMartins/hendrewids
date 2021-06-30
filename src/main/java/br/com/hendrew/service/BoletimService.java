@@ -35,7 +35,7 @@ public class BoletimService {
 	@Autowired
 	private NotasService servicenotas;
 	
-	public List<Boletim> buscarboletim() throws TratamentoNotFoundException {
+	public List<Boletim> buscarboletim(Long ano) throws TratamentoNotFoundException {
 		List<Boletim> lista = new ArrayList<Boletim>();
 		List<Alunos> alunos = servicealunos.buscarAlunos();
 		
@@ -58,6 +58,7 @@ public class BoletimService {
 			
 			for(int a = 0; a < bimestre.size(); a++)
 			{
+			  if(ano == bimestre.get(a).getAno()) { 
 				faltas = faltas + bimestre.get(a).getFaltas();
 				Double nota_aux = 0.0;
 				List<Notas> notas = servicenotas.buscarPorBimestre(bimestre.get(a).getId());
@@ -88,6 +89,7 @@ public class BoletimService {
 					letivo = letivo + 40;
 					nota4 = nota_aux;
 				}
+			}
 			
 			}
 			if(cont > 0) {
